@@ -9,6 +9,264 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 <body>
+    
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>     root scope
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+    <p>The rootScope's favorite color.</p>
+    <h1>{{ color }}</h1>
+
+    <div ng-controller="myCtrl">
+        <p>The scope of the controller's favorite color.</p>
+        <h1>{{ color }}</h1>
+    </div>
+
+    <p>The rootScope's favorite color still</p>
+    <h1>{{ color }}</h1>
+    
+    <script>
+        let app = angular.module('myApp', []);
+
+        app.run(function($rootScope) {
+            $rootScope.color = 'blue';
+        })
+
+        app.controller('myCtrl', function($scope) {
+            $scope.color = 'red';
+        })
+    </script>
+
+    <p>Notice that controller's color variable does not overwrite the 
+        rootScope's color value.
+    </p>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     know your scope
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <ul>
+            <li ng-repeat="x in name">{{ x }}</li>
+        </ul>
+    </div>
+
+    <script>
+        let app = angular.module('myApp', []);
+
+        app.controller('myCtrl', function($scope) {
+            $scope.name = ['Emil','Tobias','Linus']
+        })
+    </script>
+
+    <p>The variable 'x' has a different value for each repitition, proving that 
+        each repitition has it own scope.
+    </p>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     understanding the scope
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <input type="text" ng-model="name">
+
+        <h1>My name is {{ name }}</h1>
+    </div>
+
+    <script>
+        let app = angular.module('myApp', []);
+
+        app.controller('myCtrl', function($scope) {
+            $scope.name = 'John Doe';
+        })
+    </script>
+
+    <p>When you change the name in the input field, the changes will effect the 
+        model and it will also effect the name property in the controller.
+    </p>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     scopes
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <h1>{{ carname }}</h1>
+    </div>
+
+    <script>
+        let app = angular.module('myApp', []);
+
+        app.controller('myCtrl', function($scope) {
+            $scope.carname = 'Volvo';
+        })
+    </script>
+
+    <p>The property 'carname' was made in the controller and can be referred to 
+        in the view by using {{}} brackets.
+    </p>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     another example
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="namesCtrl">
+        <ul>
+            <li ng-repeat="x in names">{{ x.name + ', ' + x.country }}</li>
+        </ul>
+    </div>
+
+    <script src="namesController.js"></script>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     controllers (controller in external file)
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="personController">
+        First name: <input type="text" ng-model="firstName"><br><br>
+        Last name: <input type="text" ng-model="lastName"><br><br>
+        Full name: {{ fullName() }}
+    </div>
+
+    <script src="personController.js"></script>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     controllers (controller methods)
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="personCtrl">
+        First name: <input type="text" ng-model="firstName"><br><br>
+        Last name: <input type="text" ng-model="lastName"><br><br>
+
+        Full name: {{ fullName() }}
+    </div>
+
+    <script>
+        let app = angular.module('myApp', []);
+        
+        app.controller('personCtrl', function($scope) {
+            $scope.firstName = 'John';
+            $scope.lastName = 'Doe';
+            $scope.fullName = function() {
+                return $scope.firstName + ' ' + $scope.lastName
+            }
+        })
+    </script>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     angular js controller
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        First name: <input type="text" ng-model="firstName"><br><br>
+        Last name: <input type="text" ng-model="lastName"><br><br>
+
+        Full name: {{ firstName + ' ' + lastName}}
+    </div>
+
+    <script>
+        let app = angular.module('myApp', []);
+
+        app.controller('myCtrl', function($scope) {
+            $scope.firstName = 'John';
+            $scope.lastName = 'Doe';
+        })
+    </script>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     data binding (angular js controller)
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
     <div ng-app="myApp" ng-controller="myCtrl">
         <h1 ng-click="changeName()">{{ firstname }}</h1>
     </div>
@@ -29,7 +287,7 @@
     <p>Click on the header to run the 'changeName' function</p>
     <p>This example demonstrates how to use the controller to change model data.</p>
 </body>
-</html>
+</html -->
 
 
 <!-- <!DOCTYPE html>     data binding (two way binding)
