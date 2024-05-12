@@ -9,9 +9,416 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 <body>
-    
+    <div ng-app="myApp" ng-controller="customersCtrl">
+        <div ng-include="'https://tryit.w3schools.com/angular_include.php'"></div>
+    </div>
+
+    <script>
+        let app = angular.module('myApp', []);
+
+        app.config(function($sceDelegateProvider) {
+            $sceDelegateProvider.resourceUrlWhitelist([
+                'https://tryit.w3schools.com/**'
+            ]);
+        });
+    </script>
 </body>
 </html>
+
+
+<!-- <!DOCTYPE html>     includes ( ng-include )
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="customersCtrl">
+        <div ng-include="'myTable.html'"></div>
+    </div>
+
+    <script>
+        let app = angular.module('myApp', []);
+
+        app.controller('customersCtrl', function($scope, $http) {
+            $http.get('https://www.w3schools.com/angular/customers.php').then(function(response) {
+                $scope.names = response.data.records;
+            });
+        });
+    </script>
+
+    <p>The HTML, and Angular JS code for this table are located in the file 
+        'myTable.html'
+    </p>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     includes ( ng-include() )
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="">
+    <div ng-include="'myFile.html'"></div>  
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     w3.css ( add link w3.css )
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    W3.CSS
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <div class="w3-container">
+
+        <h3>Users</h3>
+        
+        <table class="w3-table w3-bordered w3-striped">
+            <tr>
+                <th>Edit</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+            <tr ng-repeat="user in users">
+                <td>
+                <button class="w3-btn w3-ripple" ng-click="editUser(user.id)">&#9998; Edit</button>
+                </td>
+                <td>{{ user.fName }}</td>
+                <td>{{ user.lName }}</td>
+            </tr>
+        </table>
+        <br>
+        <button class="w3-btn w3-green w3-ripple" ng-click="editUser('new')">&#9998; Create New User</button>
+        
+        <form ng-hide="hideform">
+            <h3 ng-show="edit">Create New User:</h3>
+            <h3 ng-hide="edit">Edit User:</h3>
+                <label>First Name:</label>
+                <input class="w3-input w3-border" type="text" ng-model="fName" ng-disabled="!edit" placeholder="First Name">
+            <br>
+                <label>Last Name:</label>
+                <input class="w3-input w3-border" type="text" ng-model="lName" ng-disabled="!edit" placeholder="Last Name">
+            <br>
+                <label>Password:</label>
+                <input class="w3-input w3-border" type="password" ng-model="passw1" placeholder="Password">
+            <br>
+                <label>Repeat:</label>
+                <input class="w3-input w3-border" type="password" ng-model="passw2" placeholder="Repeat Password">
+            <br>
+            <button class="w3-btn w3-green w3-ripple" ng-disabled="error || incomplete">&#10004; Save Changes</button>
+        </form>
+        
+    </div>
+        
+    <script src="myUsers.js"></script>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     api ( angular.isNumber() )
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <p>{{ x1 }}</p>
+        <p>{{ x2 }}</p>
+    </div>
+
+    <script>
+        let app = angular.module('myApp', []);
+
+        app.controller('myCtrl', function($scope) {
+            $scope.x1 = 'JOHN';
+            $scope.x2 = angular.isNumber($scope.x1);
+        })
+    </script>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     api ( angular.isString() )
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <p>{{ x1 }}</p>
+        <p>{{ x2 }}</p>
+    </div>
+
+    <script>
+        let app = angular.module('myApp', []);
+
+        app.controller('myCtrl', function($scope) {
+            $scope.x1 = 'JOHN';
+            $scope.x2 = angular.isString($scope.x1);
+        })
+    </script>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     api ( angular.uppercase() )
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <p>{{ x1 }}</p>
+        <p>{{ x2 }}</p>
+    </div>
+
+    <script>
+        let app = angular.module('myApp', []);
+
+        app.controller('myCtrl', function($scope) {
+            $scope.x1 = 'John';
+            $scope.x2 = angular.uppercase($scope.x1);
+        })
+    </script>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     api ( angular.lowercase() )
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <p>{{ x1 }}</p>
+        <p>{{ x2 }}</p>
+    </div>
+
+    <script>
+        let app = angular.module('myApp', []);
+
+        app.controller('myCtrl', function($scope) {
+            $scope.x1 = 'JOHN';
+            $scope.x2 = angular.lowercase($scope.x1);
+        })
+    </script>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     form validation ( form validation )
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <h2>Validation Example</h2>
+    
+    <form action="" ng-app="myApp" ng-controller="validateCtrl" name="myForm" 
+    novalidate>
+        <p>Username: <br>
+            <input type="text" name="user" ng-model="user" required>
+
+            <span style="color: red;" 
+            ng-show="myForm.user.$dirty && myForm.user.$invalid">
+                <span ng-show="myForm.user.$error.required">
+                    Username is required.
+                </span>
+            </span>
+        </p>
+
+        <p>Email: <br>
+            <input type="email" name="email" ng-model="email" required>
+
+            <span style="color: red;" 
+            ng-show="myForm.email.$dirty && myForm.email.$invalid">
+                <span ng-show="myForm.email.$error.required">
+                    Invalid email address.
+                </span>
+            </span>
+        </p>
+
+        <p>
+            <input type="submit" 
+            ng-disabled="myForm.user.$dirty && myForm.user.$invalid || 
+            myForm.email.$dirty && myForm.email.$invalid">
+        </p>
+    </form>
+
+    <script>
+        let app = angular.module('myApp', []);
+
+        app.controller('validateCtrl', function($scope) {
+            $scope.user = 'John';
+            $scope.email = 'john@gmail.com';
+        })
+    </script>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     form validation ( where e show true )
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+    <p>Try writing in the input field:</p>
+
+    <form action="" name="myForm">
+        <input type="text" name="myInput" ng-model="myInput" required my-directive>
+    </form>
+
+    <p>The input's valid state is:</p>
+    <h1>{{ myForm.myInput.$valid }}</h1>
+
+    <script>
+        let app = angular.module('myApp', []);
+
+        app.directive('myDirective', function() {
+            return {
+                require: 'ngModel',
+                link: function(scope, element, attr, mCtrl) {
+                    function myValidation(value) {
+                        if(value.indexOf("e") > -1) {
+                            mCtrl.$setValidity('charE', true);
+                        }
+                        else {
+                            mCtrl.$setValidity('charE', false);
+                        }
+                        return value;
+                    }
+                    mCtrl.$parsers.push(myValidation);
+                }
+            };
+        });
+    </script>
+
+    <p>The input field must contain the character "e" to be consider valid.</p>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     form validation ( ng-pristine ng-dirty )
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    <style>
+        form.ng-pristine
+        {
+            background-color: lightblue;
+        }
+
+        form.ng-dirty
+        {
+            background-color: pink;
+        }
+    </style>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="">
+    <form action="" name="myForm">
+        <p>Try writing in the input field:</p>
+
+        <input type="text" ng-model="myName" name="myName" required>
+
+        <p>The form gets a ng-dirty class when the form has been modified, and 
+            will therefore trun pink.
+        </p>
+    </form>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     form validation ( add css classes )
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    <style>
+        input.ng-invalid
+        {
+            background-color: pink;
+        }
+
+        input.ng-valid
+        {
+            background-color: lightgreen;
+        }
+    </style>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="">
+    <p>Try writing in the input field:</p>
+
+    <form action="" name="myForm">
+        <input type="text" ng-model="myInput" name="myName" required>
+    </form>
+
+    <p>The input field requires content, and will therefore becomes green when
+        you write in it.
+    </p>
+</body>
+</html -->
 
 
 <!-- <!DOCTYPE html>     form validation ( form state and input state )
