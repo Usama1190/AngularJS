@@ -9,6 +9,139 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 <body>
+    
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>     animate ( css animation )
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    <style>
+        @keyframes myChange {
+            from {
+                height: 100px;
+            }
+            to {
+                height: 0;
+            }
+        }
+
+        div {
+            height: 100px;
+            background-color: lightblue;
+        }
+
+        div.ng-hide {
+            animation: 0.5s myChange;
+        }
+    </style>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+</head>
+<body ng-app="ngAnimate">
+    <h1>Hide the div: <input type="checkbox" ng-model="myCheck"></h1>
+
+    <div ng-hide="myCheck"></div>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     animate ( css transitions )
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    <style>
+        div {
+            width: 100%;
+            height: 100px;
+            position: relative;
+            background-color: lightblue;
+            transition: all linear 0.5s;
+            top: 0;
+            left: 0;
+        }
+
+        .ng-hide {
+            height: 0;
+        }
+    </style>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+</head>
+<body ng-app="myApp">
+    <h1>Hide the div: <input type="checkbox" ng-model="myCheck"></h1>
+
+    <div ng-hide="myCheck"></div>
+
+    <script>
+        let app = angular.module('myApp', ['ngAnimate']);
+    </script>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     animate ( ngAnimate + library )
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    <style>
+        div {
+            transition: all linear 0.5s;
+            background-color: lightblue;
+            height: 100px;
+            width: 100%;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+
+        .ng-hide {
+            height: 0;
+            width: 0;
+            background-color: transparent;
+            top: -200px;
+            left: 200px;
+        }
+    </style>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+</head>
+<body ng-app="ngAnimate">
+    <h1>Hide the div: <input type="checkbox" ng-model="myCheck"></h1>
+
+    <div ng-hide="myCheck"></div>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     includes ( ng-include config function )
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
     <div ng-app="myApp" ng-controller="customersCtrl">
         <div ng-include="'https://tryit.w3schools.com/angular_include.php'"></div>
     </div>
@@ -23,10 +156,10 @@
         });
     </script>
 </body>
-</html>
+</html -->
 
 
-<!-- <!DOCTYPE html>     includes ( ng-include )
+<!-- <!DOCTYPE html>     includes ( ng-include() )
 <html lang="en">
 <head>
     <meta charset="UTF-8">
