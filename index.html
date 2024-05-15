@@ -3,9 +3,366 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AngularJS</title>
+    <title>AngularJS Practice</title>
 
     <!-- AngularJS Connected -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>     application ( w3.css design completed )
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    W3.CSS Connected
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <div ng-app="myShoppingList" ng-controller="myCtrl" ng-cloak 
+        class="w3-card-2 w3-margin" style="max-width: 400px">
+
+        <header class="w3-container w3-light-gray w3-padding-16">
+            <h3>My Shopping List</h3>
+        </header>
+
+        <ul class="w3-ul">
+            <li ng-repeat="x in products" class="w3-padding-16">{{ x }} 
+                <span ng-click="removeItems($index)" 
+                    style="cursor: pointer;" class="w3-right w3-margin-right">x
+                </span>
+            </li>
+        </ul>
+
+        <div class="w3-container w3-light-gray w3-padding-16">
+            <div class="w3-row w3-margin-top">
+                <div class="w3-col s10">
+                    <input type="text" ng-model="addMe" 
+                        placeholder="Add shopping items here" 
+                        class="w3-input w3-border w3-padding">
+                </div>
+
+                <div class="w3-col s2">
+                    <button type="button" ng-click="addItems()" 
+                        class="w3-btn w3-padding w3-green">
+                        Add
+                    </button>
+                </div>
+            </div>
+            <p class="w3-text-red">{{ errortext }}</p>
+        </div>
+    </div>
+
+    <p>Try to add the same item twice, and you will get an error message.</p>
+
+    <script>
+        let app = angular.module('myShoppingList', []);
+
+        app.controller('myCtrl', function($scope) {
+            $scope.products = ['Milk', 'Bread', 'Cheese'];
+
+            $scope.addItems = function() {
+                $scope.errortext = '';
+
+                if(!$scope.addMe) { return; }
+
+                if($scope.products.indexOf($scope.addMe) == -1) {
+                    $scope.products.push($scope.addMe);
+                }
+                else {
+                    $scope.errortext = 'This item is already in your shopping list.';
+                }
+            };
+
+            $scope.removeItems = function(x) {
+                $scope.products.splice(x, 1);
+            }
+        });
+    </script>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     application ( error handling )
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myShoppingList" ng-controller="myCtrl">
+        <ul>
+            <li ng-repeat="x in products">{{ x }} 
+                <span ng-click="removeItems($index)">x</span>
+            </li>
+        </ul>
+
+        <input type="text" ng-model="addMe">
+
+        <button type="button" ng-click="addItems()">Add</button>
+
+        <p>{{ errortext }}</p>
+    </div>
+
+    <p>Try to add the same item twice, and you will get an error message.</p>
+
+    <script>
+        let app = angular.module('myShoppingList', []);
+
+        app.controller('myCtrl', function($scope) {
+            $scope.products = ['Milk', 'Bread', 'Cheese'];
+
+            $scope.addItems = function() {
+                $scope.errortext = '';
+
+                if(!$scope.addMe) { return; }
+
+                if($scope.products.indexOf($scope.addMe) == -1) {
+                    $scope.products.push($scope.addMe);
+                }
+                else {
+                    $scope.errortext = 'This item is already in your shopping list.';
+                }
+            };
+
+            $scope.removeItems = function(x) {
+                $scope.products.splice(x, 1);
+            }
+        });
+    </script>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     application ( removeItem($index) + splice )
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myShoppingList" ng-controller="myCtrl">
+        <ul>
+            <li ng-repeat="x in products">{{ x }} 
+                <span ng-click="removeItems($index)">x</span>
+            </li>
+        </ul>
+
+        <input type="text" ng-model="addMe">
+
+        <button type="button" ng-click="addItems()">Add</button>
+    </div>
+
+    <p>Click the little x to remove an item from the shopping list.</p>
+
+    <script>
+        let app = angular.module('myShoppingList', []);
+
+        app.controller('myCtrl', function($scope) {
+            $scope.products = ['Milk', 'Bread', 'Cheese'];
+
+            $scope.addItems = function() {
+                $scope.products.push($scope.addMe);
+            };
+
+            $scope.removeItems = function(x) {
+                $scope.products.splice(x, 1);
+            }
+        });
+    </script>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     application ( addItems() + push() )
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myShoppingList" ng-controller="myCtrl">
+        <ul>
+            <li ng-repeat="x in products">{{ x }}</li>
+        </ul>
+
+        <input type="text" ng-model="addMe">
+
+        <button type="button" ng-click="addItems()">Add</button>
+    </div>
+
+    <p>Write in the input field to add items.</p>
+
+    <script>
+        let app = angular.module('myShoppingList', []);
+
+        app.controller('myCtrl', function($scope) {
+            $scope.products = ['Milk', 'Bread', 'Cheese'];
+            $scope.addItems = function() {
+                $scope.products.push($scope.addMe);
+            };
+        });
+    </script>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     application ( myShoppingList myCtrl )
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myShoppingList" ng-controller="myCtrl">
+        <ul>
+            <li ng-repeat="x in products">{{ x }}</li>
+        </ul>
+    </div>
+
+    <p>So far we have made an HTML list based on the items of an array.</p>
+
+    <script>
+        let app = angular.module('myShoppingList', []);
+
+        app.controller('myCtrl', function($scope) {
+            $scope.products = ['Milk', 'Bread', 'Cheese'];
+        })
+    </script>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     routing ( otherwise method )
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+</head>
+<body ng-app="myApp">
+    <p><a href="#/!">Main</a></p>
+
+    <a href="#!banana">Banana</a>
+    <a href="#!tomato">Tomato</a>
+
+    <p>Click on the links to change the content.</p>
+
+    <p>Use the "otherwise" method to define what to display when none of the 
+        links are clicked.
+    </p>
+
+    <div ng-view></div>
+
+    <script>
+        let app = angular.module('myApp', ['ngRoute']);
+
+        app.config(function($routeProvider) {
+            $routeProvider
+            .when('/banana', {
+                template: '<h1>Banana</h1><p>Bananas contains around 75% water.</p>'
+            })
+            .when('/tomato', {
+                template: '<h1>Tomato</h1><p>Tomato contains around 95% water.</p>'
+            })
+            .otherwise({
+                template: '<h1>None</h1><p>Nothing has been selected<p/>'
+            });
+        });
+    </script>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     routing ( template )
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+</head>
+<body ng-app="myApp">
+    <p><a href="#/!">Main</a></p>
+
+    <a href="#!banana">Banana</a>
+    <a href="#!tomato">Tomato</a>
+
+    <p>Click on the links to change the content.</p>
+    
+    <p>The HTML shown in the ng-view directive are written in the template 
+        property of the $routeProvider.when method.
+    </p>
+
+    <div ng-view></div>
+
+    <script>
+        let app = angular.module('myApp', ['ngRoute']);
+
+        app.config(function($routeProvider) {
+            $routeProvider
+            .when('/', {
+                template: '<h1>Main</h1><p>Click on the links to change this content.</p>'
+            })
+            .when('/banana', {
+                template: '<h1>Banana</h1><p>Bananas contain around 75% water.</p>'
+            })
+            .when('/tomato', {
+                template: '<h1>Tomato</h1><p>Tomatoes contain around 95% water.</p>'
+            });
+        });
+    </script>
+</body>
+</html -->
+
+
+<!-- <!DOCTYPE html>     routing ( controller )
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+
+    AngularJS Connected
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
 </head>
@@ -15,19 +372,42 @@
     <a href="#!london">City 1</a>
     <a href="#!paris">City 2</a>
 
-    <p>Click on the links to read about London and Paris.</p>
+    <p>Clicks on the links.</p>
+
+    <p>Note that each "view" has its own controller which each gives "msg" 
+        variable a value.
+    </p>
+
+    <div ng-view></div>
 
     <script>
         let app = angular.module('myApp', ['ngRoute']);
 
         app.config(function($routeProvider) {
-            $routeProvider.when('/', { templateUrl: 'main.html' })
-            .when('/london', { templateUrl : 'london.html'})
-            .when('/paris', { templateUrl : 'paris.html'})
-        })
+            $routeProvider
+            .when('/', {
+                templateUrl: 'main.html'
+            })
+            .when('/london', {
+                templateUrl: 'london.html',
+                controller: 'londonCtrl'
+            })
+            .when('/paris', {
+                templateUrl: 'paris.html',
+                controller: 'parisCtrl'
+            });
+        });
+
+        app.controller('londonCtrl', function($scope) {
+            $scope.msg = 'I love London';
+        });
+
+        app.controller('parisCtrl', function($scope) {
+            $scope.msg = 'I love Paris';
+        });
     </script>
 </body>
-</html>
+</html -->
 
 
 <!-- <!DOCTYPE html>     routing ( $routeProvider )
