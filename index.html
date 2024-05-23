@@ -6,33 +6,43 @@
     <title>AngularJS Practice</title>
 
     <style>
-        table, tr, td {
-            border: 1px solid gray;
-            border-collapse: collapse;
-            padding: 5px;
+        div {
+            /* width: 100%; */
+            height: 100px;
+            /* transition: all 0.3s; */
+            /* position: relative;
+            top: 0;
+            left: 0; */
+            background-color: blueviolet;
         }
 
-        table tr:nth-child(even) {
-            background-color: aliceblue;
+        @keyframes myVar {
+            from {
+                height: 100px;
+            }
+            to {
+                height: 0;
+            }
         }
 
-        table tr:nth-child(odd) {
-            background-color: aqua;
+        div.ng-hide {
+            animation: myVar 0.5s ease-in-out;
         }
     </style>
-
+    
     <!-- AngularJS Connected -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
 </head>
-<body>
-    <div ng-app="myApp" ng-controller="myCtrl">
-        <table>
-            <tr ng-repeat="x in names">
-                <td>{{ x.Name }}</td>
-                <td>{{ x.Country }}</td>
-            </tr>
-        </table>
-    </div>
+<body ng-app="myApp">
+    <input type="checkbox" ng-model="myVar">
+
+    <div ng-hide="myVar"></div>
+
+
+    <script>
+        let app = angular.module('myApp', ['ngAnimate']);
+    </script>
 </body>
 </html>
 
